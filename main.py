@@ -26,7 +26,7 @@ def setup_logger(name:str,env:str)-> logging.Logger:
     return logger
 
 def process_tasks(logger: logging.Logger, tasks: list) -> Dict[str, int]:
-    """Multiple tasks process panni success/fail count track pannum"""
+    
     result_summary: Dict[str, int] = {"success": 0, "failed": 0}
 
     for task in tasks:
