@@ -49,7 +49,7 @@ logger = setup_logger(__name__, app_env)
 
 logger.info(f"Application starting in '{app_env}' mode")
 
-tasks = [5, 10, 0, 2, "invalid"]  # oru intentional bad input um vechirukom test ku
+tasks = [5, 10, 0, 2, "invalid"]  # intentional bad input
 summary = process_tasks(logger, tasks)
 
 logger.info(f"Final summary: {summary}")
