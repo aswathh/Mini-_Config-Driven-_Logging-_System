@@ -42,3 +42,15 @@ def process_tasks(logger: logging.Logger, tasks: list) -> Dict[str, int]:
             result_summary["failed"] += 1
 
     return result_summary 
+
+# ---- main execution ----
+app_env: str = os.getenv("APP_ENV", "dev")
+logger = setup_logger(__name__, app_env)
+
+logger.info(f"Application starting in '{app_env}' mode")
+
+tasks = [5, 10, 0, 2, "invalid"]  # oru intentional bad input um vechirukom test ku
+summary = process_tasks(logger, tasks)
+
+logger.info(f"Final summary: {summary}")
+print(summary)
