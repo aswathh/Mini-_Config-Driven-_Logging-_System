@@ -1,6 +1,6 @@
-def main():
-    print("Hello from mini-config-driven-logging-system!")
+import os
+import logging
+from dotenv import load_dotenv
+from typing import Dict
 
-
-if __name__ == "__main__":
-    main()
+load_dotenv
