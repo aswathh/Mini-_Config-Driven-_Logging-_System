@@ -25,4 +25,20 @@ def setup_logger(name:str,env:str)-> logging.Logger:
         logger.addHandler(file_handler)
     return logger
 
-    
+def process_tasks(logger: logging.Logger, tasks: list) -> Dict[str, int]:
+    """Multiple tasks process panni success/fail count track pannum"""
+    result_summary: Dict[str, int] = {"success": 0, "failed": 0}
+
+    for task in tasks:
+        try:
+            logger.debug(f"Processing task: {task}")
+            if task == 0:
+                raise ZeroDivisionError("Cannot process zero task")
+            output = 100 / task
+            logger.info(f"Task '{task}' processed successfully. Result: {output}")
+            result_summary["success"] += 1
+        except Exception:
+            logger.error(f"Task '{task}' failed", exc_info=True)
+            result_summary["failed"] += 1
+
+    return result_summary 
